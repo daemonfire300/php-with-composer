@@ -21,3 +21,5 @@ RUN php -r "if (hash_file('SHA384', 'composer-setup.php') === file_get_contents(
 RUN php composer-setup.php
 RUN php -r "unlink('composer-setup.php'); unlink('installer.sig');"
 RUN php --ini
+RUN mv composer.phar /usr/local/bin
+RUN php /usr/local/bin/composer.phar --version
